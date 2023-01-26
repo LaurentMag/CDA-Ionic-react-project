@@ -20,7 +20,7 @@ import {dataServices} from "../services/dataServices";
 import {dataURL} from "../services/dataURL";
 import {UtilisateurType} from "../type/UtilisateurType";
 
-export const Profil: React.FC = () => {
+export const ProfilDetail: React.FC = () => {
   const {id} = useParams() as {id: string};
   const [utilisateur, setUtilisateur] = useState<UtilisateurType>();
 
@@ -32,7 +32,7 @@ export const Profil: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Profil</IonTitle>
+          <IonTitle>Profil detail</IonTitle>
           <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>

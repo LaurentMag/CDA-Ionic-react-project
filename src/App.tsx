@@ -1,4 +1,4 @@
-import {Link, Redirect, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import {
   IonApp,
   IonIcon,
@@ -12,9 +12,10 @@ import {
 import {IonReactRouter} from "@ionic/react-router";
 
 import Competences from "./pages/Competences";
-import {Profil} from "./pages/Profil";
+import {ProfilDetail} from "./pages/ProfilDetail";
 
 import {CompetenceDetail} from "./components/CompetenceDetail";
+import {Profils} from "./pages/Profils";
 import {body, book} from "ionicons/icons";
 
 /* Core CSS required for Ionic components to work properly */
@@ -38,7 +39,6 @@ import "./theme/variables.css";
 
 /* main.css : sass */
 import "./css/main.css";
-import {PageTest} from "./pages/PageTest";
 
 setupIonicReact();
 
@@ -54,24 +54,17 @@ const App: React.FC = () => (
           </Route>
           <Route
             exact
-            path="/">
-            <Redirect to="/competences" />
+            path="/profils">
+            <Profils />
           </Route>
           <Route
             path="/competences/:id"
             component={CompetenceDetail}></Route>
           <Route
             path="/profil/:id"
-            component={Profil}></Route>
-
-          <Route
-            path="/test"
-            component={PageTest}></Route>
+            component={ProfilDetail}></Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          {/* <Link
-            to={`/competences`}
-            style={{textDecoration: "none", color: "black"}}> */}
           <IonTabButton
             tab="competences"
             href="/competences">
@@ -80,19 +73,11 @@ const App: React.FC = () => (
           </IonTabButton>
 
           <IonTabButton
-            tab="test"
-            href="/test">
+            tab="Profils"
+            href="/profils">
             <IonIcon icon={body} />
-            <IonLabel>test</IonLabel>
+            <IonLabel>Profils</IonLabel>
           </IonTabButton>
-
-          {/* </Link> */}
-          {/* <IonTabButton
-            tab="profil"
-            href="/profil">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Profil</IonLabel>
-          </IonTabButton> */}
         </IonTabBar>
       </IonTabs>
     </IonReactRouter>

@@ -26,6 +26,8 @@ import {dataURL} from "../services/dataURL";
 import {CompetenceType} from "../type/CompetenceType";
 import {UtilisateurType} from "../type/UtilisateurType";
 
+import {useHistory} from "react-router-dom";
+
 export const CompetenceDetail = () => {
   const {id} = useParams() as {id: string};
   const [competence, setCompetence] = useState<CompetenceType>();
@@ -39,18 +41,17 @@ export const CompetenceDetail = () => {
     dataServices.fetchData(dataURL.utilisateurs).then((data) => setUtilisateurs(data));
   }, []);
 
-  const userFilter = () => {
+  const utilisateursFiltre = () => {
     let filteredUsers: UtilisateurType[] = [];
     if (competence) {
       for (const obj of competence.utilisateur) {
         filteredUsers = [...filteredUsers, ...utilisateurs.filter((userF) => userF.id == obj.id)];
       }
     }
-
     return filteredUsers;
   };
 
-  const getNiveau = (user: UtilisateurType) => {
+  const recupereNiveauComp = (user: UtilisateurType) => {
     let index = user.competences.map((comp) => comp.id).indexOf(id);
     return user.competences[index].niveau;
   };
@@ -65,7 +66,9 @@ export const CompetenceDetail = () => {
           </IonButtons>
         </IonToolbar>
       </IonHeader>
-      <IonContent class="detail-page">
+      <IonContent
+        fullscreen
+        class="detail-page">
         <IonCard>
           <img src={competence && competence.image} />
           <IonCardHeader>
@@ -81,7 +84,7 @@ export const CompetenceDetail = () => {
         <h1 className="detail-user-list">Utilisateurs : </h1>
 
         <IonList inset={true}>
-          {userFilter().map((user, index) => {
+          {utilisateursFiltre().map((user, index) => {
             return (
               <Link
                 key={index}
@@ -91,7 +94,7 @@ export const CompetenceDetail = () => {
                   <div className="utilisateur-niveau">
                     <p>{user.nom}</p>
                     <p>{user.prenom}</p>
-                    <p>Niveau : {getNiveau(user)}</p>
+                    <p>Niveau : {recupereNiveauComp(user)}</p>
                   </div>
                 </section>
               </Link>
