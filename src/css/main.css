@@ -1,0 +1,56 @@
+.comptence-button {
+  padding-inline: 1rem;
+  padding-block: 0.1rem;
+  width: 100%;
+}
+
+.card-image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: 12rem;
+  width: 100%;
+}
+
+.form-class {
+  padding-block: 2rem;
+  display: grid;
+  gap: 5rem;
+}
+
+.competence-list-element {
+  width: 90%;
+  padding: 2rem 2rem 2rem 15%;
+  margin-inline: auto;
+  margin-block: 1rem;
+  border-radius: 0.3rem;
+  color: rgb(26, 24, 27);
+  background-color: rgba(244, 244, 244, 0.737);
+  box-shadow: 6px 7px 15px -6px rgba(0, 0, 0, 0.3);
+}
+
+.detail-user-list {
+  padding-inline: 1.5rem;
+  -webkit-padding-before: 1rem;
+          padding-block-start: 1rem;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.utiliser-niveau-container {
+  display: grid;
+  justify-items: center;
+}
+
+.utilisateur-niveau {
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  margin-block: 0.5rem;
+  width: 100%;
+  border-radius: 0.3rem;
+  box-shadow: 6px 7px 15px -6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-around;
+}
+.utilisateur-niveau p {
+  flex: 1 1 0px;
+}/*# sourceMappingURL=main.css.map */

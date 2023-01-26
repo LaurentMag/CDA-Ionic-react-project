@@ -1,0 +1,93 @@
+{
+  "users": [
+    {
+      "id": "0",
+      "prenom": "Robert",
+      "nom": "Duprès",
+      "competences": [
+        {
+          "id": "0",
+          "niveau": "Débutant"
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "prenom": "Brenda",
+      "nom": "HollyW",
+      "competences": [
+        {
+          "id": "1",
+          "niveau": "Débutant"
+        },
+        {
+          "id": "2",
+          "niveau": "Confirmé"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "prenom": "Marqueritte",
+      "nom": "DesChamps",
+      "competences": [
+        {
+          "id": "0",
+          "niveau": "Avancé"
+        }
+      ]
+    }
+  ],
+  "competences": [
+    {
+      "id": "0",
+      "nom": "java",
+      "description": "Classe",
+      "image": "https://www.sitedetout.com/wp-content/uploads/2016/07/java.jpg",
+      "utilisateur": [
+        {
+          "id": "0"
+        },
+        {
+          "id": "2"
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "nom": "JavaScript",
+      "description": "Sans TS c'est mieux",
+      "image": "https://www.softfluent.fr/wp-content/uploads/2019/10/javascript.png",
+      "utilisateur": [
+        {
+          "id": "1"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "nom": "C#",
+      "description": "croisillon",
+      "image": "https://niixer.com/wp-content/uploads/2020/11/csharp-800x445.jpg",
+      "utilisateur": [
+        {
+          "id": "1"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "nom": "React",
+      "description": "C'est une Librarie",
+      "image": "https://fr.reactjs.org/logo-og.png",
+      "utilisateur": []
+    },
+    {
+      "id": "4",
+      "nom": "angular",
+      "description": "Non merci",
+      "image": "",
+      "utilisateur": []
+    }
+  ]
+}
