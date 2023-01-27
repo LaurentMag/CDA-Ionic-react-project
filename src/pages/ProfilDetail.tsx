@@ -37,7 +37,7 @@ export const ProfilDetail: React.FC = () => {
         <IonToolbar>
           <IonTitle>Profil detail</IonTitle>
           <IonButtons slot="start">
-            <IonBackButton />
+            <IonBackButton defaultHref="/profils" />
           </IonButtons>
         </IonToolbar>
       </IonHeader>

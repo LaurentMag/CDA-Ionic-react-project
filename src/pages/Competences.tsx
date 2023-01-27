@@ -1,4 +1,14 @@
-import {IonButton, IonContent, IonHeader, IonItem, IonList, IonPage, IonTitle, IonToolbar} from "@ionic/react";
+import {
+  IonButton,
+  IonContent,
+  IonHeader,
+  IonItem,
+  IonList,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  useIonRouter,
+} from "@ionic/react";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
@@ -36,7 +46,9 @@ const Competences: React.FC = () => {
           <IonTitle>Compétences</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent
+        fullscreen={true}
+        className="ion-padding">
         <IonButton
           onClick={setModalVisibility}
           color="dark"
@@ -56,7 +68,7 @@ const Competences: React.FC = () => {
               return (
                 <Link
                   key={index}
-                  to={`/competences/${competence.id}`}
+                  to={`/competence/${competence.id}`}
                   style={{textDecoration: "none"}}>
                   <CardComposant competenceObj={competence} />
                 </Link>
@@ -71,19 +83,27 @@ const Competences: React.FC = () => {
 export default Competences;
 
 /* 
-             <IonItem routerLink={`/competences/${competence.id}`}>
-                  <CardComposant
-                    key={index}
-                    competenceObj={competence}
-                  />
-                </IonItem>
+     <IonItem routerLink={`/competences/${competence.id}`}>
+        <CardComposant
+           key={index}
+           competenceObj={competence}
+         />
+     </IonItem>
 */
 
 /* 
-                  <Link
-                  key={index}
-                  to={`/competences/${competence.id}`}
-                  style={{textDecoration: "none"}}>
-                  <CardComposant competenceObj={competence} />
-                </Link>
+     <Link
+        key={index}
+        to={`/competences/${competence.id}`}
+         style={{textDecoration: "none"}}>
+         <CardComposant competenceObj={competence} />
+     </Link>
+*/
+
+/* 
+  const history = useIonRouter();
+
+   <div   key={index} onClick={() => history.push(`/competences/${competence.id}`)}>
+        <CardComposant competenceObj={competence} />
+    </div>
 */

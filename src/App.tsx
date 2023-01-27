@@ -40,13 +40,15 @@ import "./theme/variables.css";
 /* main.css : sass */
 import "./css/main.css";
 
-setupIonicReact();
+setupIonicReact({
+  mode: "ios",
+});
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
-        <IonRouterOutlet>
+        <IonRouterOutlet animated={true}>
           <Redirect
             exact
             from="/"
@@ -57,7 +59,7 @@ const App: React.FC = () => (
             path="/competences">
             <Competences />
           </Route>
-          <Route path="/competences/:id">
+          <Route path="/competence/:id">
             <CompetenceDetail />
           </Route>
           <Route

@@ -9,13 +9,11 @@ import {
   IonCardTitle,
   IonContent,
   IonHeader,
-  IonItem,
-  IonLabel,
   IonList,
   IonPage,
   IonTitle,
   IonToolbar,
-  NavContext,
+  useIonRouter,
 } from "@ionic/react";
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router";
@@ -34,6 +32,7 @@ export const CompetenceDetail: React.FC = () => {
   const [utilisateurs, setUtilisateurs] = useState<UtilisateurType[]>([]);
 
   useEffect(() => {
+    console.log(id);
     dataServices.fetchDataById(dataURL.competences, id).then((data) => setCompetence(data));
   }, [id]);
 
@@ -51,9 +50,20 @@ export const CompetenceDetail: React.FC = () => {
     return filteredUsers;
   };
 
+  // const recupereNiveauComp = (user: UtilisateurType) => {
+  //   let index = user.competences.map((comp) => comp.id).indexOf(id);
+  //   return user.competences[index].niveau;
+  // };
+
   const recupereNiveauComp = (user: UtilisateurType) => {
-    let index = user.competences.map((comp) => comp.id).indexOf(id);
-    return user.competences[index].niveau;
+    if (user) {
+      let index = user.competences.map((comp) => comp.id).indexOf(id);
+      if (index !== -1) {
+        return user.competences[index].niveau;
+      }
+    } else {
+      return "...loading";
+    }
   };
 
   return (
@@ -82,22 +92,23 @@ export const CompetenceDetail: React.FC = () => {
         <h1 className="detail-user-list">Utilisateurs : </h1>
 
         <IonList inset={true}>
-          {utilisateursFiltre().map((user, index) => {
-            return (
-              <Link
-                key={index}
-                to={`/profil/${user.id}`}
-                style={{textDecoration: "none", color: "black"}}>
-                <section className="utiliser-niveau-container">
-                  <div className="utilisateur-niveau">
-                    <p>{user.nom}</p>
-                    <p>{user.prenom}</p>
-                    <p>Niveau : {recupereNiveauComp(user)}</p>
-                  </div>
-                </section>
-              </Link>
-            );
-          })}
+          {utilisateursFiltre() &&
+            utilisateursFiltre().map((user, index) => {
+              return (
+                <Link
+                  key={index}
+                  to={`/profil/${user.id}`}
+                  style={{textDecoration: "none", color: "black"}}>
+                  <section className="utiliser-niveau-container">
+                    <div className="utilisateur-niveau">
+                      <p>{user.nom}</p>
+                      <p>{user.prenom}</p>
+                      <p>Niveau : {recupereNiveauComp(user)}</p>
+                    </div>
+                  </section>
+                </Link>
+              );
+            })}
         </IonList>
       </IonContent>
     </IonPage>
@@ -110,4 +121,37 @@ export const CompetenceDetail: React.FC = () => {
   Récupère l'index de la valeur correspondant à l'ID de la compétence selectionné pour afficher les détails
 
   user.competences.map((comp) => comp.id).indexOf(id)
+*/
+
+/*
+<Link
+  key={index}
+  to={`/profil/${user.id}`}
+  style={{textDecoration: "none", color: "black"}}>
+  <section className="utiliser-niveau-container">
+    <div className="utilisateur-niveau">
+      <p>{user.nom}</p>
+      <p>{user.prenom}</p>
+      <p>Niveau : {recupereNiveauComp(user)}</p>
+    </div>
+  </section>
+</Link>
+*/
+
+/* 
+
+  const history = useIonRouter();
+
+                <section
+                  className="utiliser-niveau-container"
+                  key={index}
+                  onClick={() => history.push(`/profil/${user.id}`)}>
+                  <div className="utilisateur-niveau">
+                    <p>{user.nom}</p>
+                    <p>{user.prenom}</p>
+                    <p>Niveau : {recupereNiveauComp(user)}</p>
+                  </div>
+                </section>
+
+
 */
