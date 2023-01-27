@@ -48,7 +48,7 @@ export const Modal = (props: PropsType) => {
             closeModal={closeModal}
           />
         ) : (
-          <ModalFormNiveau />
+          <ModalFormNiveau closeModal={closeModal} />
         )}
       </IonContent>
     </IonModal>

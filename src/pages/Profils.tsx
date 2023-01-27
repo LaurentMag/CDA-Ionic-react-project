@@ -1,4 +1,17 @@
-import {IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from "@ionic/react";
+import {
+  IonBackButton,
+  IonButtons,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
 import React, {useEffect, useState} from "react";
 import {dataServices} from "../services/dataServices";
 import {dataURL} from "../services/dataURL";
@@ -19,7 +32,23 @@ export const Profils = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <p> C'est la page des profils </p>
+        {utilisateurs &&
+          utilisateurs.map((user, index) => {
+            return (
+              <IonCard
+                key={index}
+                routerLink={`/profil/${user.id}`}>
+                <IonCardHeader>
+                  <IonCardTitle>{user.prenom}</IonCardTitle>
+                  <IonCardSubtitle>{user.nom}</IonCardSubtitle>
+                </IonCardHeader>
+
+                <IonCardContent>
+                  Here's a small text description for the card content. Nothing more, nothing less.
+                </IonCardContent>
+              </IonCard>
+            );
+          })}
       </IonContent>
     </IonPage>
   );

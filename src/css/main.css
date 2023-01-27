@@ -6,7 +6,7 @@
 
 .card-image {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   max-height: 12rem;
   width: 100%;
 }
@@ -31,7 +31,7 @@
 .detail-user-list {
   padding-inline: 1.5rem;
   -webkit-padding-before: 1rem;
-          padding-block-start: 1rem;
+  padding-block-start: 1rem;
   font-size: 28px;
   font-weight: 700;
 }
@@ -53,4 +53,4 @@
 }
 .utilisateur-niveau p {
   flex: 1 1 0px;
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */

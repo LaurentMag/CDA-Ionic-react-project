@@ -13,7 +13,10 @@ import {
   IonList,
   IonBackButton,
   IonButtons,
+  IonButton,
+  IonIcon,
 } from "@ionic/react";
+import {add} from "ionicons/icons";
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router";
 import {dataServices} from "../services/dataServices";
@@ -39,6 +42,13 @@ export const ProfilDetail: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
+        <IonButton className="comptence-button">
+          <IonIcon
+            slot="start"
+            icon={add}
+          />
+          Ajouter un niveau
+        </IonButton>
         <IonCard>
           <IonCardHeader>
             <IonCardTitle>{utilisateur && utilisateur.prenom}</IonCardTitle>

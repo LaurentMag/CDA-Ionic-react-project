@@ -54,11 +54,12 @@ const Competences = () => {
           {competencesList &&
             competencesList.map((competence, index) => {
               return (
-                <IonItem
+                <Link
                   key={index}
-                  routerLink={`/competences/${competence.id}`}>
+                  to={`/competences/${competence.id}`}
+                  style={{textDecoration: "none"}}>
                   <CardComposant competenceObj={competence} />
-                </IonItem>
+                </Link>
               );
             })}
         </IonList>
