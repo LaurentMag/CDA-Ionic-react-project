@@ -28,7 +28,7 @@ import {UtilisateurType} from "../type/UtilisateurType";
 
 import {useHistory} from "react-router-dom";
 
-export const CompetenceDetail = () => {
+export const CompetenceDetail: React.FC = () => {
   const {id} = useParams() as {id: string};
   const [competence, setCompetence] = useState<CompetenceType>();
   const [utilisateurs, setUtilisateurs] = useState<UtilisateurType[]>([]);
@@ -66,9 +66,7 @@ export const CompetenceDetail = () => {
           </IonButtons>
         </IonToolbar>
       </IonHeader>
-      <IonContent
-        fullscreen
-        class="detail-page">
+      <IonContent class="detail-page">
         <IonCard>
           <img src={competence && competence.image} />
           <IonCardHeader>

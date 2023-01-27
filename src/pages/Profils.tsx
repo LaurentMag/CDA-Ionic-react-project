@@ -17,12 +17,12 @@ import {dataServices} from "../services/dataServices";
 import {dataURL} from "../services/dataURL";
 import {UtilisateurType} from "../type/UtilisateurType";
 
-export const Profils = () => {
+export const Profils: React.FC = () => {
   const [utilisateurs, setUtilisateur] = useState<UtilisateurType[]>();
 
   useEffect(() => {
     dataServices.fetchData(dataURL.utilisateurs).then((data) => setUtilisateur(data));
-  });
+  }, []);
 
   return (
     <IonPage>
@@ -31,7 +31,7 @@ export const Profils = () => {
           <IonTitle>Profils :</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
+      <IonContent>
         {utilisateurs &&
           utilisateurs.map((user, index) => {
             return (

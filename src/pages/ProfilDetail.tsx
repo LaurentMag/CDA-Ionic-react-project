@@ -41,7 +41,7 @@ export const ProfilDetail: React.FC = () => {
           </IonButtons>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
+      <IonContent>
         <IonButton className="comptence-button">
           <IonIcon
             slot="start"

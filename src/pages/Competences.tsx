@@ -9,7 +9,7 @@ import {dataServices} from "../services/dataServices";
 import {dataURL} from "../services/dataURL";
 import {CompetenceType} from "../type/CompetenceType";
 
-const Competences = () => {
+const Competences: React.FC = () => {
   const [competencesList, setCompetencesList] = useState<CompetenceType[]>();
   const [isModalVisible, setIsModalVisibile] = useState<boolean>(false);
 
@@ -36,7 +36,7 @@ const Competences = () => {
           <IonTitle>Compétences</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
+      <IonContent>
         <IonButton
           onClick={setModalVisibility}
           color="dark"
@@ -77,4 +77,13 @@ export default Competences;
                     competenceObj={competence}
                   />
                 </IonItem>
+*/
+
+/* 
+                  <Link
+                  key={index}
+                  to={`/competences/${competence.id}`}
+                  style={{textDecoration: "none"}}>
+                  <CardComposant competenceObj={competence} />
+                </Link>
 */

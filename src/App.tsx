@@ -1,4 +1,4 @@
-import {Route} from "react-router-dom";
+import {Redirect, Route} from "react-router-dom";
 import {
   IonApp,
   IonIcon,
@@ -14,7 +14,7 @@ import {IonReactRouter} from "@ionic/react-router";
 import Competences from "./pages/Competences";
 import {ProfilDetail} from "./pages/ProfilDetail";
 
-import {CompetenceDetail} from "./components/CompetenceDetail";
+import {CompetenceDetail} from "./pages/CompetenceDetail";
 import {Profils} from "./pages/Profils";
 import {body, book} from "ionicons/icons";
 
@@ -47,23 +47,29 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
+          <Redirect
+            exact
+            from="/"
+            to="/competences"
+          />
           <Route
             exact
             path="/competences">
             <Competences />
+          </Route>
+          <Route path="/competences/:id">
+            <CompetenceDetail />
           </Route>
           <Route
             exact
             path="/profils">
             <Profils />
           </Route>
-          <Route
-            path="/competences/:id"
-            component={CompetenceDetail}></Route>
-          <Route
-            path="/profil/:id"
-            component={ProfilDetail}></Route>
+          <Route path="/profil/:id">
+            <ProfilDetail />
+          </Route>
         </IonRouterOutlet>
+
         <IonTabBar slot="bottom">
           <IonTabButton
             tab="competences"
